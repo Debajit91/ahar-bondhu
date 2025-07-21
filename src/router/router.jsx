@@ -4,6 +4,13 @@ import {
 import HomeLayout from "../Layouts/HomeLayout";
 import Home from "../Pages/Home";
 import AvailableFoods from "../Pages/AvailableFoods";
+import AuthLayout from "../Layouts/AuthLayout";
+import Login from "../Pages/Login";
+import Register from "../Pages/Register";
+import PrivateRoute from "../Routes/PrivateRoute";
+import AddFood from "../Pages/AddFood";
+import ManageFoods from "../Pages/ManageFoods";
+import MyFoodRequest from "../Pages/MyFoodRequest";
 
 
 export const router = createBrowserRouter([
@@ -18,10 +25,45 @@ export const router = createBrowserRouter([
       {
         path: "available-foods",
         Component: AvailableFoods
+      },
+      {
+        path: "add-food",
+        element: (
+          <PrivateRoute>
+            <AddFood/>
+          </PrivateRoute>
+        )
+      },
+      {
+        path: "manage-foods",
+        element:(
+          <PrivateRoute>
+            <ManageFoods/>
+          </PrivateRoute>
+        )
+      },
+      {
+        path: "my-requests",
+        element: (
+          <PrivateRoute>
+            <MyFoodRequest/>
+          </PrivateRoute>
+        )
       }
     ]
   },
   {
-    path: "/"
+    path: "/",
+    Component: AuthLayout,
+    children:[
+      {
+        path: "login",
+        Component: Login
+      },
+      {
+        path: "signup",
+        Component: Register
+      }
+    ]
   }
 ]);

@@ -8,8 +8,8 @@ import {
   signOut,
   GoogleAuthProvider,
 } from "firebase/auth";
-import { auth } from "../firebase/firebase.config";
 import { AuthContext } from "./AuthContext";
+import { auth } from "../Firebase/firebase.init";
 
 const googleProvider = new GoogleAuthProvider();
 

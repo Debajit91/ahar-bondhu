@@ -1,10 +1,11 @@
 import { Link, NavLink } from "react-router";
-
+// import { useAuth } from "../Hooks/useAuth";
 import { FiLogOut } from "react-icons/fi";
 import Logo from "/Logo.png"
+import NavItem from "./NavItem";
 
 export default function Navbar() {
-//   const { user, logout } = useContext(AuthContext); // adjust according to your auth setup
+//   const { user, logout } = useAuth();
 
 //   const handleLogout = async () => {
 //     try {
@@ -17,23 +18,23 @@ export default function Navbar() {
   const navLinks = (
     <>
       <li>
-        <NavLink to="/" end>
+        <NavItem to="/" end>
           Home
-        </NavLink>
+        </NavItem>
       </li>
       <li>
-        <NavLink to="/available-foods">Available Foods</NavLink>
+        <NavItem to="/available-foods">Available Foods</NavItem>
       </li>
       {/* {user && (
         <>
           <li>
-            <NavLink to="/add-food">Add Food</NavLink>
+            <NavItem to="/add-food">Add Food</NavItem>
           </li>
           <li>
-            <NavLink to="/manage-foods">Manage My Foods</NavLink>
+            <NavItem to="/manage-foods">Manage My Foods</NavItem>
           </li>
           <li>
-            <NavLink to="/my-requests">My Food Request</NavLink>
+            <NavItem to="/my-requests">My Food Request</NavItem>
           </li>
         </>
       )} */}
