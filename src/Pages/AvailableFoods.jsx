@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import axiosInstance from "../Api/axiosInstance";
+import useAuth from "../Hooks/useAuth";
+import { toast } from "react-toastify";
 
 const AvailableFoods = () => {
   const [foods, setFoods] = useState([]);
   const [sortByDate, setSortByDate] = useState(false);
-  
+  const { user } = useAuth();
+  const navigate = useNavigate();
+  console.log("foods:", foods);
 
   useEffect(() => {
     const fetchFoods = async () => {
@@ -21,6 +25,15 @@ const AvailableFoods = () => {
 
     fetchFoods();
   }, [sortByDate]);
+
+  const handleViewDetails = (id) => {
+    if (!user) {
+      toast.info("Please login to view food details");
+      navigate("/login");
+    } else {
+      navigate(`/foods/${id}`);
+    }
+  };
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
@@ -48,14 +61,19 @@ const AvailableFoods = () => {
             />
             <div className="mt-4">
               <h3 className="text-xl font-semibold">{food.foodName}</h3>
-              <p className="text-sm text-gray-600">Quantity: {food.quantity} Plates/Pkts</p>
+              <p className="text-sm text-gray-600">
+                Quantity: {food.quantity} Plates/Pkts
+              </p>
               <p className="text-sm text-gray-600">
                 Expire Date: {new Date(food.expiredAt).toLocaleString()}
               </p>
             </div>
-            <Link to={`/foods/${food._id}`}>
-              <button className="btn btn-sm mt-4 w-full">View Details</button>
-            </Link>
+            <button
+              onClick={() => handleViewDetails(food._id)}
+              className="btn btn-sm mt-4 w-full"
+            >
+              View Details
+            </button>
           </div>
         ))}
       </div>
