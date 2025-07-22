@@ -9,6 +9,7 @@ import Lottie from "lottie-react";
 import animationData from "../assets/Registration-animation.json";
 import Logo from "/Logo.png";
 import GoogleButton from "../Components/GoogleButton";
+import axiosInstance from "../Api/axiosInstance";
 
 const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
 
@@ -39,13 +40,17 @@ const Register = () => {
   } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmit = async (data) => {
-    const { name, email, password, photoURL } = data;
+    const { name, email, password, photo } = data;
     setLoading(true);
     try {
       const userCredential = await createUser(email, password);
       await updateUserProfile({
         displayName: name,
-        photoURL,
+        photoURL:photo,
+      });
+
+      await axiosInstance.post('/users/register', {
+        name, email, photoURL: photo,
       });
 
       toast.success("Registration successful!");

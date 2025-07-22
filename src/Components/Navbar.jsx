@@ -1,19 +1,20 @@
 import { Link, NavLink } from "react-router";
-// import { useAuth } from "../Hooks/useAuth";
 import { FiLogOut } from "react-icons/fi";
 import Logo from "/Logo.png"
 import NavItem from "./NavItem";
+import useAuth from "../Hooks/useAuth";
 
 export default function Navbar() {
-//   const { user, logout } = useAuth();
+  const { user, logout } = useAuth();
+  
 
-//   const handleLogout = async () => {
-//     try {
-//       await logout();
-//     } catch (err) {
-//       console.error("Logout failed", err);
-//     }
-//   };
+  const handleLogout = async () => {
+    try {
+      await logout();
+    } catch (err) {
+      console.error("Logout failed", err);
+    }
+  };
 
   const navLinks = (
     <>
@@ -25,7 +26,7 @@ export default function Navbar() {
       <li>
         <NavItem to="/available-foods">Available Foods</NavItem>
       </li>
-      {/* {user && (
+      {user && (
         <>
           <li>
             <NavItem to="/add-food">Add Food</NavItem>
@@ -37,7 +38,7 @@ export default function Navbar() {
             <NavItem to="/my-requests">My Food Request</NavItem>
           </li>
         </>
-      )} */}
+      )}
     </>
   );
 
@@ -57,7 +58,7 @@ export default function Navbar() {
 
       {/* Right: Auth Buttons or Profile */}
       <div className="navbar-end space-x-3">
-        {/* {!user ? (
+        {!user ? (
           <>
             <Link to="/login" className="btn btn-outline btn-sm">
               Login
@@ -84,7 +85,7 @@ export default function Navbar() {
               <FiLogOut size={20} />
             </button>
           </div>
-        )} */}
+        )}
       </div>
 
       {/* Mobile Menu */}
@@ -108,7 +109,7 @@ export default function Navbar() {
           </summary>
           <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
             {navLinks}
-            {/* {!user && (
+            {!user && (
               <>
                 <li>
                   <Link to="/login">Login</Link>
@@ -122,7 +123,7 @@ export default function Navbar() {
               <li>
                 <button onClick={handleLogout}>Logout</button>
               </li>
-            )} */}
+            )}
           </ul>
         </details>
       </div>

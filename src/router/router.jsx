@@ -11,6 +11,7 @@ import PrivateRoute from "../Routes/PrivateRoute";
 import AddFood from "../Pages/AddFood";
 import ManageFoods from "../Pages/ManageFoods";
 import MyFoodRequest from "../Pages/MyFoodRequest";
+import FoodDetails from "../Pages/FoodDetails";
 
 
 export const router = createBrowserRouter([
@@ -25,6 +26,12 @@ export const router = createBrowserRouter([
       {
         path: "available-foods",
         Component: AvailableFoods
+      },
+      {
+        path: "foods/:id",
+        element: <PrivateRoute>
+          <FoodDetails/>
+        </PrivateRoute>
       },
       {
         path: "add-food",
