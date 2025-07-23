@@ -32,7 +32,7 @@ export default function Navbar() {
             <NavItem to="/add-food">Add Food</NavItem>
           </li>
           <li>
-            <NavItem to="/manage-foods">Manage My Foods</NavItem>
+            <NavItem to="/manage-foods">Manage Your Foods</NavItem>
           </li>
           <li>
             <NavItem to="/my-requests">My Food Request</NavItem>
