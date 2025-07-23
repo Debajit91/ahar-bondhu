@@ -3,6 +3,7 @@ import { FiLogOut } from "react-icons/fi";
 import Logo from "/Logo.png"
 import NavItem from "./NavItem";
 import useAuth from "../Hooks/useAuth";
+import { toast } from "react-toastify";
 
 export default function Navbar() {
   const { user, logout } = useAuth();
@@ -12,7 +13,7 @@ export default function Navbar() {
     try {
       await logout();
     } catch (err) {
-      console.error("Logout failed", err);
+      toast.error("Logout failed", err);
     }
   };
 

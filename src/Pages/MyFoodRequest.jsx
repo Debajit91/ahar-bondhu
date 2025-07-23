@@ -12,10 +12,10 @@ const MyFoodRequest = () => {
         const res = await axiosInstance.get(
           `/foods/my-requests?email=${user?.email}`
         );
-        console.log("requested foods:", res.data);
+        
         setRequestedFoods(res.data);
       } catch (err) {
-        console.error("Failed to fetch requested foods:", err);
+        // console.error("Failed to fetch requested foods:", err);
       }
     };
 

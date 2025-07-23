@@ -109,7 +109,7 @@ GET    /api/users/top-donators
 
 ✍️ Author
 Debajit Roy
-[GitHub Profile] (https://github.com/Debajit91)
+GitHub Profile: https://github.com/Debajit91
 
 📄 License
 This project is open-source and free to use under the MIT License.

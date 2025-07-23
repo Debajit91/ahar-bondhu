@@ -6,7 +6,7 @@ import axiosInstance from "../Api/axiosInstance";
 const AddFood = () => {
   const { register, handleSubmit, reset } = useForm();
   const { user } = useAuth(); 
-  console.log("Logged-in User:", user)
+  
 
   const onSubmit = async (data) => {
     const foodData = {
@@ -24,8 +24,8 @@ const AddFood = () => {
         reset();
       }
     } catch (err) {
-      toast.error("Failed to add food.");
-      console.error(err);
+      toast.error("Failed to add food.", err);
+      
     }
   };
 

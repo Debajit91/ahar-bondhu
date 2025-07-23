@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Swal from "sweetalert2";
 import axiosInstance from "../Api/axiosInstance";
 import useAuth from "../Hooks/useAuth";
+import { toast } from "react-toastify";
 
 
 const ManageFoods = () => {
@@ -16,7 +17,7 @@ const ManageFoods = () => {
     axiosInstance
       .get(`/foods/user?email=${user.email}`)
       .then((res) => setMyFoods(res.data))
-      .catch((err) => console.error("Failed to load foods:", err));
+      .catch((err) => toast.error("Failed to load foods:", err));
   }, [user]);
 
   const handleDelete = async (id) => {
@@ -34,7 +35,7 @@ const ManageFoods = () => {
         setMyFoods((prev) => prev.filter((food) => food._id !== id));
         Swal.fire("Deleted!", "Your food has been deleted.", "success");
       } catch (err) {
-        console.error("Delete failed:", err);
+        toast.error("Delete failed:", err);
         Swal.fire("Error", "Something went wrong", "error");
       }
     }

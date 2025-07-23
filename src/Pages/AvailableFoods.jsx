@@ -21,7 +21,7 @@ const AvailableFoods = () => {
         );
         setFoods(res.data);
       } catch (error) {
-        console.error("Failed to fetch foods:", error);
+        toast.error("Failed to fetch foods:", error);
       }
     };
 
