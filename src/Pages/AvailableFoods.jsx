@@ -10,6 +10,7 @@ const AvailableFoods = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
   const [columns, setColumns] = useState(3);
+  const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
     const fetchFoods = async () => {
@@ -35,9 +36,13 @@ const AvailableFoods = () => {
     }
   };
 
-  const changeLayout = () =>{
-    setColumns(prev =>(prev === 3 ? 2:3))
-  }
+  const changeLayout = () => {
+    setColumns((prev) => (prev === 3 ? 2 : 3));
+  };
+
+  const filteredFoods = foods.filter((food) =>
+    food.foodName.toLowerCase().includes(searchText.toLowerCase())
+  );
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
@@ -48,7 +53,14 @@ const AvailableFoods = () => {
         {columns === 3 ? "View 2 columns" : "View 3 columns"}
       </button>
       {/* Sorting */}
-      <div className="mb-6 flex justify-end">
+      <div className="mb-6 flex justify-between">
+        <input
+          type="text"
+          placeholder="Search by food name..."
+          className="mb-6 px-4 py-2 border border-gray-300 rounded w-full max-w-sm"
+          value={searchText}
+          onChange={(e) => setSearchText(e.target.value)}
+        />
         <button
           className="btn btn-sm btn-outline"
           onClick={() => setSortByDate(!sortByDate)}
@@ -58,8 +70,14 @@ const AvailableFoods = () => {
       </div>
 
       {/* Food Cards */}
-      <div className={`grid gap-6 ${columns === 3 ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" : "grid-cols-1 sm:grid-cols-2"}`}>
-        {foods.map((food) => (
+      <div
+        className={`grid gap-6 ${
+          columns === 3
+            ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"
+            : "grid-cols-1 sm:grid-cols-2"
+        }`}
+      >
+        {filteredFoods.map((food) => (
           <div
             key={food._id}
             className="bg-white shadow rounded-lg p-4 flex flex-col justify-between"
