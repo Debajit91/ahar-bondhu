@@ -48,7 +48,7 @@ const FeaturedFoods = () => {
               className="h-40 w-full object-cover rounded-md mb-3"
             />
             <h3 className="text-xl font-semibold">{food.foodName}</h3>
-            <p className="text-gray-600">Quantity: {food.quantity}</p>
+            <p className="text-gray-600">Quantity: {food.quantity} Plates / Kgs</p>
             <p className="text-sm text-gray-500">
               Location: {food.pickupLocation}
             </p>
