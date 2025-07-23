@@ -17,7 +17,7 @@ const FeaturedFoods = () => {
   return (
     <section className="my-15">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-5xl font-bold">🍱 Featured Foods</h2>
+        <h2 className="text-3xl font-bold">🍱 Featured Foods</h2>
         <Link to="/available-foods">
           <button className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-md">
             Show All

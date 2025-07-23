@@ -10,7 +10,7 @@ import Logo from "/Logo.png";
 export default function Footer() {
   return (
     <footer className="bg-base-200 text-base-content mt-10">
-      <div className="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 lg:grid-cols-3 gap-8">
 
         {/* Left: Logo */}
         <div className="flex flex-col items-start">

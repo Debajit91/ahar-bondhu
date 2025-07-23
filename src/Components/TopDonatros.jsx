@@ -17,7 +17,7 @@ const TopDonators = () => {
   if (isError) return <p className="text-center text-red-500 py-10">Failed to load donators.</p>;
 
   return (
-    <section className="bg-white py-12 px-4 md:px-12">
+    <section className="bg-white py-12 px-4 mb-10 md:px-12">
       <h2 className="text-3xl font-bold text-center mb-8">🌟 Top Donators</h2>
       <div className="grid md:grid-cols-3 gap-6">
         {donators.map((donator, idx) => (

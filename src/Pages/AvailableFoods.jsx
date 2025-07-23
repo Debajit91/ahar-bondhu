@@ -9,7 +9,7 @@ const AvailableFoods = () => {
   const [sortByDate, setSortByDate] = useState(false);
   const { user } = useAuth();
   const navigate = useNavigate();
-  console.log("foods:", foods);
+  const [columns, setColumns] = useState(3);
 
   useEffect(() => {
     const fetchFoods = async () => {
@@ -35,8 +35,18 @@ const AvailableFoods = () => {
     }
   };
 
+  const changeLayout = () =>{
+    setColumns(prev =>(prev === 3 ? 2:3))
+  }
+
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
+      <button
+        onClick={changeLayout}
+        className="mb-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition"
+      >
+        {columns === 3 ? "View 2 columns" : "View 3 columns"}
+      </button>
       {/* Sorting */}
       <div className="mb-6 flex justify-end">
         <button
@@ -48,7 +58,7 @@ const AvailableFoods = () => {
       </div>
 
       {/* Food Cards */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className={`grid gap-6 ${columns === 3 ? "grid-cols-1 sm:grid-cols-2 lg:grid-cols-3" : "grid-cols-1 sm:grid-cols-2"}`}>
         {foods.map((food) => (
           <div
             key={food._id}
