@@ -6,7 +6,7 @@ Ahar Bondhu is a **community-based food sharing platform** where users can donat
 
 ## 🚀 Live Link
 
-🌐 [Visit Ahar Bondhu](https://your-deployed-site-link.com)
+🌐 [Visit Ahar Bondhu](https://aharbondhu.web.app)
 
 ---
 
