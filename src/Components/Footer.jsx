@@ -10,7 +10,7 @@ import Logo from "/Logo.png";
 export default function Footer() {
   return (
     <footer className="bg-base-200 text-base-content mt-10">
-      <div className="max-w-6xl mx-auto px-4 py-10 grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="max-w-7xl mx-auto px-5 py-10 flex justify-between items-center gap-8">
 
         {/* Left: Logo */}
         <div className="flex flex-col items-start">
@@ -30,6 +30,12 @@ export default function Footer() {
             </li>
             <li>
               <Link to="/available-foods" className="hover:underline">Available Foods</Link>
+            </li>
+            <li>
+              <Link to="/about" className="hover:underline">About Us</Link>
+            </li>
+            <li>
+              <Link to="/contact" className="hover:underline">Contact Us</Link>
             </li>
             <li>
               <Link to="/login" className="hover:underline">Login</Link>

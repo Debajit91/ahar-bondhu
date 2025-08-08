@@ -27,6 +27,12 @@ export default function Navbar() {
       <li>
         <NavItem to="/available-foods">Available Foods</NavItem>
       </li>
+      <li>
+        <NavItem to="/about">About Us</NavItem>
+      </li>
+      <li>
+        <NavItem to="/contact">Contact Us</NavItem>
+      </li>
       {user && (
         <>
           <li>
@@ -46,7 +52,7 @@ export default function Navbar() {
   return (
     <nav className="w-full bg-base-200 sticky top-0 z-50 shadow-md">
 
-      <div className="navbar max-w-7xl mx-auto">
+      <div className="navbar max-w-7xl mx-auto px-4">
 
         <div className="navbar-start">
         <Link to="/" className="text-xl font-bold text-primary">
