@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axiosInstance from "../Api/axiosInstance";
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +9,8 @@ const ContactUs = () => {
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -16,12 +19,20 @@ const ContactUs = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // For now, just show success message
-    setSubmitted(true);
+    setLoading(true);
+    setError("");
 
-    // Here you can add form submission logic (e.g., send email or save to DB)
+    try{
+        await axiosInstance.post('/contacts', formData);
+        setSubmitted(true);
+        setFormData({name: "", email:"", message:""});
+    } catch (err){
+        setError("Something went wrong. Please try again")
+    } finally {
+        setLoading(false)
+    }
   };
 
   return (
@@ -34,6 +45,7 @@ const ContactUs = () => {
         </p>
       ) : (
         <form onSubmit={handleSubmit} className="space-y-6">
+            {error && <p className="text-red-600"> {error}</p>}
           <div>
             <label className="block mb-1 font-semibold" htmlFor="name">
               Name
@@ -84,9 +96,10 @@ const ContactUs = () => {
 
           <button
             type="submit"
-            className="btn btn-primary w-full"
+            className="btn btn-primary w-full"disabled={loading}
           >
-            Send Message
+            {loading ? "Sending..." : "Send Message" }
+            
           </button>
         </form>
       )}

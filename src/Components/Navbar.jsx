@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router";
+import { Link } from "react-router";
 import { FiLogOut } from "react-icons/fi";
 import Logo from "/Logo.png"
 import NavItem from "./NavItem";
