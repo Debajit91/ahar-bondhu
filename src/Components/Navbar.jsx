@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router";
 import { FiLogOut } from "react-icons/fi";
-import Logo from "/Logo1.png"
+import Logo from "/Logo.png"
 import NavItem from "./NavItem";
 import useAuth from "../Hooks/useAuth";
 import { toast } from "react-toastify";
@@ -44,7 +44,7 @@ export default function Navbar() {
   );
 
   return (
-    <nav className="w-full bg-base-200 shadow-md">
+    <nav className="w-full bg-base-200 sticky top-0 z-50 shadow-md">
 
       <div className="navbar max-w-7xl mx-auto">
 
