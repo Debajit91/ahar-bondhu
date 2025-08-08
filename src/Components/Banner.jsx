@@ -40,7 +40,7 @@ const Banner = () => {
     <div className="mt-4">
       <Slider {...settings}>
         {banners.map((banner) => (
-          <div key={banner.id} className="relative h-[60vh] w-full">
+          <div key={banner.id} className="relative h-[80vh] w-full">
             <img
               src={banner.image}
               alt={banner.title}

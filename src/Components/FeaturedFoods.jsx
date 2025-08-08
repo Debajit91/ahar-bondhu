@@ -25,7 +25,7 @@ const FeaturedFoods = () => {
   return (
     <section className="my-15">
       <div className="flex justify-between items-center mb-6">
-        <h2 className="text-3xl font-bold">🍱 Featured Foods</h2>
+        <h2 className="text-3xl font-bold">Featured Foods</h2>
         <Link to="/available-foods">
           <button className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-md">
             Show All
@@ -40,7 +40,7 @@ const FeaturedFoods = () => {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: index * 0.5 }}
-            className="p-4 shadow rounded border"
+            className="p-4 bg-base-200 shadow rounded"
           >
             <img
               src={food.foodImage}

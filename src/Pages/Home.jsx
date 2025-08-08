@@ -6,7 +6,7 @@ import TopDonators from '../Components/TopDonatros';
 
 const Home = () => {
     return (
-        <div>
+        <div className='max-w-7xl mx-auto px-6'>
             <Banner/>
             <FeaturedFoods/>
             <TopDonators/>
