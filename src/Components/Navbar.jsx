@@ -50,7 +50,7 @@ export default function Navbar() {
 
         <div className="navbar-start">
         <Link to="/" className="text-xl font-bold text-primary">
-          <img className="w-22" src={Logo} alt="" />
+          <img className="w-22 -mt-2 -mb-4" src={Logo} alt="" />
         </Link>
       </div>
 
