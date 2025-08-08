@@ -1,6 +1,6 @@
 import { Link, NavLink } from "react-router";
 import { FiLogOut } from "react-icons/fi";
-import Logo from "/Logo.png"
+import Logo from "/Logo1.png"
 import NavItem from "./NavItem";
 import useAuth from "../Hooks/useAuth";
 import { toast } from "react-toastify";
@@ -44,9 +44,11 @@ export default function Navbar() {
   );
 
   return (
-    <div className="navbar bg-base-100 shadow-md px-4">
-      
-      <div className="navbar-start">
+    <nav className="w-full bg-base-200 shadow-md">
+
+      <div className="navbar max-w-7xl mx-auto">
+
+        <div className="navbar-start">
         <Link to="/" className="text-xl font-bold text-primary">
           <img className="w-22" src={Logo} alt="" />
         </Link>
@@ -128,6 +130,9 @@ export default function Navbar() {
           </ul>
         </details>
       </div>
-    </div>
+
+      </div>
+      
+    </nav>
   );
 }

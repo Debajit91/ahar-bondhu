@@ -12,7 +12,7 @@ const queryClient = new QueryClient();
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <div className="font-merriweather max-w-7xl mx-auto">
+    <div className="font-merriweather">
       <QueryClientProvider client={queryClient}>
         <AuthProvider>
         <RouterProvider router={router} />
