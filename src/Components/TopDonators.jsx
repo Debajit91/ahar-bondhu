@@ -23,7 +23,7 @@ const TopDonators = () => {
       <div className="grid md:grid-cols-3 gap-6">
         {donators.map((donator, idx) => (
           <div key={idx} className="bg-base-200 p-6 rounded-xl shadow-md text-center">
-            <h3 className="text-xl font-semibold">{donator.name}</h3>
+            <h3 className="text-xl text-gray-900 font-semibold">{donator.name}</h3>
             <p className="text-sm text-gray-600">{donator._id}</p>
             <p className="mt-2 text-green-700 font-bold">Contributions: {donator.count}</p>
           </div>

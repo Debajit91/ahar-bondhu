@@ -32,8 +32,8 @@ const ImpactStatistics = () => {
   return (
     <section className="my-15 rounded-2xl">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-gray-800 mb-4">Our Impact</h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
+        <h2 className="text-3xl font-bold mb-4">Our Impact</h2>
+        <p className="max-w-2xl mx-auto">
           Together, we're making a real difference in our community by reducing food waste and fighting hunger
         </p>
       </div>
@@ -59,7 +59,7 @@ const ImpactStatistics = () => {
       </div>
       
       <div className="text-center mt-8">
-        <p className="text-gray-600">
+        <p>
           Join us in creating a hunger-free community, one meal at a time
         </p>
       </div>

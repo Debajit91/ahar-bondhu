@@ -47,10 +47,10 @@ const Banner = () => {
               className="w-full h-full object-cover rounded-lg shadow-xl"
             />
             <div className="absolute inset-45 bg-opacity-40 rounded-lg flex flex-col justify-center items-center  text-center px-6">
-              <h2 className="bg-white text-3xl md:text-5xl text- font-bold mb-2 drop-shadow-md">
+              <h2 className="bg-white text-3xl text-black md:text-5xl text- font-bold mb-2 drop-shadow-md">
                 {banner.title}
               </h2>
-              <p className="bg-white text-lg md:text-2xl drop-shadow">
+              <p className="bg-white text-lg md:text-2xl text-black drop-shadow">
                 {banner.subtitle}
               </p>
             </div>

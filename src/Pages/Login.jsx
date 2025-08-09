@@ -47,7 +47,7 @@ const Login = () => {
   
 
   return (
-    <div className="flex items-center justify-center px-4">
+    <div className="flex items-center justify-center text-gray-900 px-4">
       <div className="w-full max-w-5xl flex flex-col md:flex-row bg-base-100 shadow-xl rounded-lg overflow-hidden">
         {/* Left: Animation */}
         <div className="md:w-1/2 bg-base-200 flex items-center justify-center p-6">

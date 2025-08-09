@@ -43,8 +43,8 @@ const Testimonials = () => {
   return (
     <section className="my-20">
       <div className="text-center mb-12">
-        <h2 className="text-3xl font-bold text-gray-800 mb-4">What Our Community Says</h2>
-        <p className="text-gray-600 max-w-2xl mx-auto">
+        <h2 className="text-3xl font-bold mb-4">What Our Community Says</h2>
+        <p className="w-2xl mx-auto">
           Real stories from real people who are making a difference through food sharing
         </p>
       </div>
@@ -93,7 +93,7 @@ const Testimonials = () => {
 
       {/* Call to Action */}
       <div className="text-center mt-12">
-        <p className="text-gray-600 text-lg mb-6">
+        <p className="mb-6">
           Ready to share your story with us?
         </p>
         <div className="space-x-4">

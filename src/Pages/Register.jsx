@@ -58,11 +58,11 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex bg-base-200">
+    <div className="min-h-screen flex max-w-7xl mx-auto px-5">
       <ToastContainer position="top-center" />
 
       {/* Left: Form */}
-      <div className="flex flex-col justify-center items-center w-full max-w-md p-8 bg-white shadow-lg">
+      <div className="flex flex-col justify-center items-center w-full max-w-md p-8 bg-white shadow-lg text-black">
         <img className="w-50" src={Logo} alt="Ahar Bondhu" />
         <h2 className="text-3xl font-bold mb-6">Create Your Account</h2>
         <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-5">

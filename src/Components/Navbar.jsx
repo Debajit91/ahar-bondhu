@@ -4,6 +4,7 @@ import Logo from "/Logo.png"
 import NavItem from "./NavItem";
 import useAuth from "../Hooks/useAuth";
 import { toast } from "react-toastify";
+import DarkModeToggle from "./DarkModeToggle";
 
 export default function Navbar() {
   const { user, logout } = useAuth();
@@ -67,6 +68,8 @@ export default function Navbar() {
 
       {/* Right: Auth Buttons or Profile */}
       <div className="navbar-end space-x-3">
+        <DarkModeToggle/>
+
         {!user ? (
           <>
             <Link to="/login" className="btn btn-outline btn-sm">
@@ -118,6 +121,7 @@ export default function Navbar() {
           </summary>
           <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
             {navLinks}
+            <DarkModeToggle/>
             {!user && (
               <>
                 <li>
