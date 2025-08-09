@@ -9,6 +9,7 @@ import Lottie from "lottie-react";
 import animationData from "../assets/Registration-animation.json";
 import Logo from "/Logo.png";
 import GoogleButton from "../Components/GoogleButton";
+import axiosInstance from "../Api/axiosInstance";
 
 const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
 
@@ -39,13 +40,17 @@ const Register = () => {
   } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmit = async (data) => {
-    const { name, email, password, photoURL } = data;
+    const { name, email, password, photo } = data;
     setLoading(true);
     try {
       const userCredential = await createUser(email, password);
       await updateUserProfile({
         displayName: name,
-        photoURL,
+        photoURL:photo,
+      });
+
+      await axiosInstance.post('/users/register', {
+        name, email, photoURL: photo,
       });
 
       toast.success("Registration successful!");
@@ -58,11 +63,11 @@ const Register = () => {
   };
 
   return (
-    <div className="min-h-screen flex max-w-7xl mx-auto px-5">
+    <div className="min-h-screen flex max-w-7xl px-6 mx-auto">
       <ToastContainer position="top-center" />
 
       {/* Left: Form */}
-      <div className="flex flex-col justify-center items-center w-full max-w-md p-8 bg-white shadow-lg text-black">
+      <div className="flex flex-col justify-center items-center w-full max-w-xl p-8 bg-white shadow-lg text-gray-900 rounded-bl-xl rounded-tl-xl">
         <img className="w-50" src={Logo} alt="Ahar Bondhu" />
         <h2 className="text-3xl font-bold mb-6">Create Your Account</h2>
         <form onSubmit={handleSubmit(onSubmit)} className="w-full space-y-5">
@@ -149,8 +154,8 @@ const Register = () => {
       </div>
 
       {/* Right: Animated Image */}
-      <div className="hidden md:flex flex-1 items-center justify-center bg-gradient-to-tr from-primary to-secondary">
-        {/* You can replace this with any animated gif or Lottie animation */}
+      <div className="hidden md:flex flex-1 items-center justify-center bg-gradient-to-tr from-primary to-secondary rounded-tr-xl rounded-br-xl">
+        
         <Lottie
           animationData={animationData}
           loop={true}

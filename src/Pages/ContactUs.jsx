@@ -89,7 +89,7 @@ const ContactUs = () => {
               rows="5"
               value={formData.message}
               onChange={handleChange}
-              className="textarea textarea-bordered w-full"
+              className="textarea textarea-bordered text-gray-900 w-full"
               placeholder="Write your message here"
             />
           </div>

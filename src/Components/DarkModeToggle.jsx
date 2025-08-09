@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { HiOutlineSun, HiOutlineMoon } from "react-icons/hi";
 
 const DarkModeToggle = () => {
     const [dark, setDark] = useState(false);
@@ -34,10 +35,10 @@ const DarkModeToggle = () => {
   return (
     <button
       onClick={toggle}
-      className="ml-4 px-3 py-1 rounded bg-blue-600 text-white hover:bg-blue-700"
+      className="bg-primary p-1 rounded-full cursor-pointer"
       aria-label="Toggle Dark Mode"
     >
-      {dark ? "Light Mode" : "Dark Mode"}
+      {dark ? <HiOutlineSun size={20}/> : <HiOutlineMoon size={20}/>}
     </button>
     );
 };

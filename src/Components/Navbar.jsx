@@ -72,7 +72,7 @@ export default function Navbar() {
 
         {!user ? (
           <>
-            <Link to="/login" className="btn btn-outline btn-sm">
+            <Link to="/login" className="btn btn-outline btn-sm text-gray-900">
               Login
             </Link>
             <Link to="/signup" className="btn btn-primary btn-sm">
@@ -101,7 +101,7 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-      <div className="lg:hidden navbar-end">
+      <div className="lg:hidden navbar-end text-gray-900">
         <details className="dropdown dropdown-end">
           <summary className="btn btn-ghost lg:hidden">
             <svg
@@ -121,7 +121,7 @@ export default function Navbar() {
           </summary>
           <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
             {navLinks}
-            <DarkModeToggle/>
+            
             {!user && (
               <>
                 <li>
