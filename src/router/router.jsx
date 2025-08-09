@@ -14,6 +14,7 @@ import MyFoodRequest from "../Pages/MyFoodRequest";
 import FoodDetails from "../Pages/FoodDetails";
 import AboutUs from "../Pages/AboutUs";
 import ContactUs from "../Pages/ContactUs";
+import NotFound from "../Pages/NotFound";
 
 
 export const router = createBrowserRouter([
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
       {
         path: "contact",
         Component: ContactUs
+      },
+      {
+        path: "*",
+        Component: NotFound
       },
       {
         path: "foods/:id",
