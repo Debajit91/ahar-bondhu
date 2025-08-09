@@ -12,7 +12,7 @@ const queryClient = new QueryClient();
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <div className="font-merriweather">
+    <div className="font-merriweather bg-gradient-to-r from-green-50 to-blue-50">
       <QueryClientProvider client={queryClient}>
         <AuthProvider>
         <RouterProvider router={router} />

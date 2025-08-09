@@ -27,7 +27,7 @@ const FeaturedFoods = () => {
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-3xl font-bold">Featured Foods</h2>
         <Link to="/available-foods">
-          <button className="px-4 py-2 bg-green-600 hover:bg-green-700 text-white rounded-md">
+          <button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-300 cursor-pointer"> 
             Show All
           </button>
         </Link>

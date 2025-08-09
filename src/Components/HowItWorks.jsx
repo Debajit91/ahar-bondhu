@@ -7,7 +7,7 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section className="bg-gray-100 py-12 px-4 md:px-12">
+    <section className="mb-10">
       <h2 className="text-3xl font-bold text-center mb-8">📢 How It Works</h2>
       <div className="grid md:grid-cols-4 gap-6">
         {steps.map((step, idx) => (

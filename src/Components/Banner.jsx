@@ -37,7 +37,7 @@ const Banner = () => {
   };
 
   return (
-    <div className="mt-4">
+    <div className="mt-8">
       <Slider {...settings}>
         {banners.map((banner) => (
           <div key={banner.id} className="relative h-[80vh] w-full">
