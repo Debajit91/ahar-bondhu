@@ -43,9 +43,9 @@ const ManageFoods = () => {
 
   return (
     <div className="p-6">
-      <h2 className="text-2xl font-bold mb-4">Manage Your Foods</h2>
+      <h2 className="text-3xl text-center font-bold mb-4">Manage Your Foods</h2>
       {myFoods.length === 0 ? (
-        <p>No foods added yet.</p>
+        <p className="text-center">No foods added yet.</p>
       ) : (
         <div className="overflow-x-auto">
           <table className="min-w-full border text-center">

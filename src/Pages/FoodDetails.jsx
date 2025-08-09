@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAuth from "../Hooks/useAuth";
 import axiosInstance from "../Api/axiosInstance";
 import RequestModal from "../Components/RequestModal";
+import LoaderSpinner from "../Components/LoaderSpinner";
 
 const FoodDetails = () => {
   const { id } = useParams();
@@ -19,7 +20,7 @@ const FoodDetails = () => {
     },
   });
 
-  if (isLoading) return <p>Loading...</p>;
+  if (isLoading) return <p><LoaderSpinner/></p>;
   if (isError || !food) return <p>Food not found!</p>;
 
   const handleRequestClick = () => {

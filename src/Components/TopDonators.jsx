@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axiosInstance from "../Api/axiosInstance";
+import LoaderSpinner from "./LoaderSpinner";
 
 
 const fetchTopDonators = async () => {
@@ -13,7 +14,7 @@ const TopDonators = () => {
     queryFn: fetchTopDonators,
   });
 
-  if (isLoading) return <p className="text-center py-10">Loading...</p>;
+  if (isLoading) return <p className="text-center py-10"><LoaderSpinner/></p>;
   if (isError) return <p className="text-center text-red-500 py-10">Failed to load donators.</p>;
 
   return (

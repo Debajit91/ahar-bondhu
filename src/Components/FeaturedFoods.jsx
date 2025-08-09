@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router";
 import axiosInstance from "../Api/axiosInstance";
 import { motion } from "framer-motion";
+import LoaderSpinner from "./LoaderSpinner";
 
 const FeaturedFoods = () => {
   const {
@@ -16,7 +17,7 @@ const FeaturedFoods = () => {
     },
   });
 
-  if (isLoading) return <p className="text-center">Loading...</p>;
+  if (isLoading) return <p className="text-center"><LoaderSpinner/></p>;
   if (isError)
     return (
       <p className="text-center text-red-500">Failed to load featured foods</p>
