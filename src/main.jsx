@@ -6,9 +6,10 @@ import { router } from "./router/router.jsx";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AuthProvider from "./Contexts/AuthProvider.jsx";
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { motion, AnimatePresence } from 'framer-motion';
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { motion, AnimatePresence } from "framer-motion";
 import Loader from "./Components/Loader.jsx";
+import FloatingChat from "./Components/FloatingChat.jsx";
 
 const queryClient = new QueryClient();
 
@@ -23,43 +24,45 @@ const AppWrapper = () => {
 
   return (
     <>
-    <ToastContainer position="top-right" />
-    <AnimatePresence mode="wait">
-      {loading ? (
-        <motion.div
-          key="loader"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-        >
-          <Loader />
-        </motion.div>
-      ) : (
-        <motion.div
-          key="app"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <RouterProvider router={router} />
-        </motion.div>
-      )}
-    </AnimatePresence>
+      <ToastContainer position="top-right" />
+      <AnimatePresence mode="wait">
+        {loading ? (
+          <motion.div
+            key="loader"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <Loader />
+          </motion.div>
+        ) : (
+          <motion.div
+            key="app"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            
+            <RouterProvider router={router} />
+
+            <FloatingChat/>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };
 
 //Loader container
 
-
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <div className="font-merriweather">
       <QueryClientProvider client={queryClient}>
-        <AuthProvider>        
-        <AppWrapper/>
-      </AuthProvider>
+        <AuthProvider>
+          <AppWrapper />
+        </AuthProvider>
       </QueryClientProvider>
     </div>
   </StrictMode>
