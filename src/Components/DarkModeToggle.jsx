@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import { HiOutlineSun, HiOutlineMoon } from "react-icons/hi";
 
 const DarkModeToggle = () => {
-    const [dark, setDark] = useState(false);
+  const [dark, setDark] = useState(false);
 
   useEffect(() => {
     const saved = localStorage.getItem("theme");
@@ -35,12 +35,17 @@ const DarkModeToggle = () => {
   return (
     <button
       onClick={toggle}
-      className="bg-primary p-1 rounded-full cursor-pointer"
+      className={`p-2 rounded-full cursor-pointer transition-all duration-300 
+  ${
+    dark
+      ? "hover:bg-yellow-500/20 hover:scale-110 hover:shadow-[0_0_10px_rgba(255,215,0,0.4)]"
+      : "hover:bg-gray-800/10 hover:scale-110 hover:shadow-[0_0_10px_rgba(0,0,0,0.1)]"
+  }`}
       aria-label="Toggle Dark Mode"
     >
-      {dark ? <HiOutlineSun size={20}/> : <HiOutlineMoon size={20}/>}
+      {dark ? <HiOutlineSun size={20} /> : <HiOutlineMoon size={20} />}
     </button>
-    );
+  );
 };
 
 export default DarkModeToggle;
