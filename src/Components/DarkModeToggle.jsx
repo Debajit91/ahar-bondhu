@@ -35,7 +35,7 @@ const DarkModeToggle = () => {
   return (
     <button
       onClick={toggle}
-      className={`p-2 rounded-full cursor-pointer transition-all duration-300 
+      className={`p-2 rounded-full cursor-pointer text-black transition-all duration-300 
   ${
     dark
       ? "hover:bg-yellow-500/20 hover:scale-110 hover:shadow-[0_0_10px_rgba(255,215,0,0.4)]"

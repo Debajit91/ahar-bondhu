@@ -31,8 +31,8 @@ const AddFood = () => {
 
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white rounded shadow mt-6">
-      <h2 className="text-2xl font-semibold mb-4">Add Food</h2>
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+      <h2 className="text-black text-2xl font-semibold mb-4">Add Food</h2>
+      <form onSubmit={handleSubmit(onSubmit)} className="text-black space-y-4">
         <input {...register("foodName", { required: true })} placeholder="Food Name" className="input input-bordered w-full" />
         <input {...register("foodImage", { required: true })} placeholder="Food Image URL" className="input input-bordered w-full" />
         <input type="number" {...register("quantity", { required: true })} placeholder="Food Quantity" className="input input-bordered w-full" />

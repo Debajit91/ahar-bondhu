@@ -94,7 +94,7 @@ export default function Navbar() {
               className="btn btn-ghost btn-circle tooltip tooltip-bottom"
               data-tip="Logout"
             >
-              <FiLogOut size={20} />
+              <FiLogOut className="text-black" size={20} />
             </button>
           </div>
         )}
