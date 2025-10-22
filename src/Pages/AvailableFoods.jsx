@@ -89,7 +89,7 @@ const AvailableFoods = () => {
               className="w-full h-40 object-cover rounded"
             />
             <div className="mt-4">
-              <h3 className="text-xl font-semibold">{food.foodName}</h3>
+              <h3 className="text-gray-800 text-xl font-semibold">{food.foodName}</h3>
               <p className="text-sm text-gray-600">
                 Quantity: {food.quantity} Plates/Pkts
               </p>
