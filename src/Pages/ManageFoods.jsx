@@ -50,7 +50,7 @@ const ManageFoods = () => {
         <div className="overflow-x-auto">
           <table className="min-w-full border text-center">
             <thead>
-              <tr className="bg-gray-200">
+              <tr className="bg-gray-200 text-gray-800">
                 <th className="px-4 py-2">Food Name</th>
                 <th className="px-4 py-2">Status</th>
                 <th className="px-4 py-2">Expire Date</th>
