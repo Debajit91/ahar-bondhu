@@ -11,7 +11,7 @@ const DarkModeToggle = () => {
       (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)
     ) {
       setDark(true);
-      document.body.classList.add("bg-gray-900", "text-white");
+      document.body.classList.add("bg-gray-950", "text-gray-100");
       document.body.classList.remove("bg-white", "text-black");
     } else {
       document.body.classList.add("bg-white", "text-black");
