@@ -1,0 +1,22 @@
+/* Default dots style */
+.slick-dots li button:before {
+  color: #333; 
+  opacity: 0.7;
+}
+
+/* Active dot */
+.slick-dots li.slick-active button:before {
+  color: #000;
+  opacity: 1;
+}
+
+/* Dark mode overrides */
+.dark .slick-dots li button:before {
+  color: #ddd; 
+  opacity: 0.6;
+}
+
+.dark .slick-dots li.slick-active button:before {
+  color: #fff; 
+  opacity: 1;
+}
