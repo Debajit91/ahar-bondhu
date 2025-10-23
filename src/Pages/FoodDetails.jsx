@@ -20,7 +20,7 @@ const FoodDetails = () => {
     },
   });
 
-  if (isLoading) return <p><LoaderSpinner/></p>;
+  if (isLoading) return <LoaderSpinner/>;
   if (isError || !food) return <p>Food not found!</p>;
 
   const handleRequestClick = () => {

@@ -4,7 +4,6 @@ import axiosInstance from "../Api/axiosInstance";
 import useAuth from "../Hooks/useAuth";
 import { toast } from "react-toastify";
 
-
 const AvailableFoods = () => {
   const [foods, setFoods] = useState([]);
   const [sortByDate, setSortByDate] = useState(false);
@@ -14,19 +13,19 @@ const AvailableFoods = () => {
   const [searchText, setSearchText] = useState("");
 
   useEffect(() => {
-    const fetchFoods = async () => {
-      try {
-        const res = await axiosInstance.get(
-          `/foods?sortBy=${sortByDate ? "expireDate" : ""}`
-        );
-        setFoods(res.data);
-      } catch (error) {
-        toast.error("Failed to fetch foods:", error);
-      }
-    };
+  const fetchFoods = async () => {
+    try {
+      const url = sortByDate ? "/foods?sortBy=expiredAt" : "/foods";
+      const res = await axiosInstance.get(url);
+      setFoods(res.data);
+    } catch (error) {
+      toast.error("Failed to fetch foods");
+      console.error(error);
+    }
+  };
 
-    fetchFoods();
-  }, [sortByDate]);
+  fetchFoods();
+}, [sortByDate]);
 
   const handleViewDetails = (id) => {
     if (!user) {
@@ -66,7 +65,7 @@ const AvailableFoods = () => {
           className="btn btn-sm btn-outline"
           onClick={() => setSortByDate(!sortByDate)}
         >
-          {sortByDate ? "Clear Sort" : "Sort by Expire Date"}
+          {sortByDate ? "Clear Sort" : "Sort by Expire At"}
         </button>
       </div>
 
@@ -83,13 +82,22 @@ const AvailableFoods = () => {
             key={food._id}
             className="bg-white shadow rounded-lg p-4 flex flex-col justify-between"
           >
+            {/* {food.donorImage && (
+              <img
+                src={food.donorImage}
+                alt={food.donorName || "Donor"}
+                className="w-10 h-10 rounded-full mb-2"
+              />
+            )} */}
             <img
               src={food.foodImage}
               alt={food.foodName}
               className="w-full h-40 object-cover rounded"
             />
             <div className="mt-4">
-              <h3 className="text-gray-800 text-xl font-semibold">{food.foodName}</h3>
+              <h3 className="text-gray-800 text-xl font-semibold">
+                {food.foodName}
+              </h3>
               <p className="text-sm text-gray-600">
                 Quantity: {food.quantity} Plates/Pkts
               </p>
@@ -97,6 +105,12 @@ const AvailableFoods = () => {
                 Expire Date: {new Date(food.expiredAt).toLocaleString()}
               </p>
             </div>
+            <p className="text-sm text-gray-600">Donor: {food.donorName}</p>
+            {food.location && (
+              <p className="text-sm text-gray-600">
+                Location: {food.pickupLocation || "Not Provided"}
+              </p>
+            )}
             <button
               onClick={() => handleViewDetails(food._id)}
               className="btn btn-sm mt-4 w-full"

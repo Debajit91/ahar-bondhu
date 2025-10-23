@@ -142,7 +142,7 @@ export default function Chat({ userId = "u_local" }) {
       <div className="border-t bg-white p-2">
         <div className="flex items-end gap-2">
           <textarea
-            className="flex-1 resize-none rounded-lg border border-gray-300 p-2 text-sm outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="flex-1 resize-none rounded-lg border border-gray-300 p-2 text-sm text-gray-500 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
             rows={2}
             placeholder="Describe your issue…"
             value={input}

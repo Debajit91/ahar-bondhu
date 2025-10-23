@@ -17,7 +17,7 @@ const FeaturedFoods = () => {
     },
   });
 
-  if (isLoading) return <p className="text-center"><LoaderSpinner/></p>;
+  if (isLoading) return <div className="text-center"><LoaderSpinner/></div>;
   if (isError)
     return (
       <p className="text-center text-red-500">Failed to load featured foods</p>

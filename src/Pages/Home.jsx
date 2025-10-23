@@ -5,6 +5,7 @@ import HowItWorks from '../Components/HowItWorks';
 import TopDonators from '../Components/TopDonators';
 import ImpactStatistics from '../Components/ImpactStatistics';
 import Testimonials from '../Components/Testimonials';
+import NearbyFoods from './NearbyFoods';
 
 const Home = () => {
     return (
@@ -15,6 +16,7 @@ const Home = () => {
             <TopDonators/>
             <Testimonials/>
             <HowItWorks/>
+            <NearbyFoods/>
         </div>
     );
 };

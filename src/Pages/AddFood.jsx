@@ -5,40 +5,78 @@ import axiosInstance from "../Api/axiosInstance";
 
 const AddFood = () => {
   const { register, handleSubmit, reset } = useForm();
-  const { user } = useAuth(); 
-  
+  const { user } = useAuth();
 
   const onSubmit = async (data) => {
-    const foodData = {
-      ...data,
-      donorName: user?.displayName,
-      donorEmail: user?.email,
-      donorImage: user?.photoURL,
-      status: "available",
-    };
+    // ✅ লোকেশন নাও
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        const { latitude, longitude } = position.coords;
 
-    try {
-      const res = await axiosInstance.post("/foods", foodData);
-      if (res.data.insertedId) {
-        toast.success("Food added successfully!");
-        reset();
+        const foodData = {
+          ...data,
+          donorName: user?.displayName,
+          donorEmail: user?.email,
+          donorImage: user?.photoURL || null, // নতুন: donor photo
+          status: "available",
+          // চাইলে রাখো:
+          location: { lat: latitude, lng: longitude },
+          createdAt: new Date(),
+        };
+
+        try {
+          const res = await axiosInstance.post("/foods", foodData);
+          if (res.data.insertedId) {
+            toast.success("Food added successfully!");
+            reset();
+          }
+        } catch (err) {
+          toast.error("Failed to add food.");
+          console.error(err);
+        }
+      },
+      (error) => {
+        console.error("Location access denied:", error);
+        toast.warning("Please allow location access to add food.");
       }
-    } catch (err) {
-      toast.error("Failed to add food.", err);
-      
-    }
+    );
   };
 
   return (
     <div className="max-w-2xl mx-auto p-6 bg-white rounded shadow mt-6">
       <h2 className="text-black text-2xl font-semibold mb-4">Add Food</h2>
       <form onSubmit={handleSubmit(onSubmit)} className="text-black space-y-4">
-        <input {...register("foodName", { required: true })} placeholder="Food Name" className="input input-bordered w-full" />
-        <input {...register("foodImage", { required: true })} placeholder="Food Image URL" className="input input-bordered w-full" />
-        <input type="number" {...register("quantity", { required: true })} placeholder="Food Quantity" className="input input-bordered w-full" />
-        <input {...register("pickupLocation", { required: true })} placeholder="Pickup Location" className="input input-bordered w-full" />
-        <input type="datetime-local" {...register("expiredAt", { required: true })} className="input input-bordered w-full" />
-        <textarea {...register("notes")} placeholder="Additional Notes" className="textarea textarea-bordered w-full" />
+        <input
+          {...register("foodName", { required: true })}
+          placeholder="Food Name"
+          className="input input-bordered w-full"
+        />
+        <input
+          {...register("foodImage", { required: true })}
+          placeholder="Food Image URL"
+          className="input input-bordered w-full"
+        />
+        <input
+          type="number"
+          {...register("quantity", { required: true })}
+          placeholder="Food Quantity"
+          className="input input-bordered w-full"
+        />
+        <input
+          {...register("pickupLocation", { required: true })}
+          placeholder="Pickup Location"
+          className="input input-bordered w-full"
+        />
+        <input
+          type="datetime-local"
+          {...register("expiredAt", { required: true })}
+          className="input input-bordered w-full"
+        />
+        <textarea
+          {...register("notes")}
+          placeholder="Additional Notes"
+          className="textarea textarea-bordered w-full"
+        />
         <button className="btn btn-primary w-full">Add Food</button>
       </form>
     </div>
