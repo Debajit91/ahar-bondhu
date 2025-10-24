@@ -36,17 +36,20 @@ Ahar Bondhu is a **community-based food sharing platform** where users can donat
 
 ---
 
-🖼️ Screenshots
+## 🖼️ Screenshots
 
-Upload screenshots in a folder named screenshots/ in your repo and replace the links below 👇
 
-🏠 Home Page
 
-🍲 Food Details
+### 🏠 Home Page
+![Home Page](https://github.com/Debajit91/ahar-bondhu/blob/main/aharbondhu.web.app_.png)
 
-💬 Chatbot
+### 🍲 Available Foods
+![Available Foods](https://github.com/Debajit91/ahar-bondhu/blob/main/aharbondhu.web.app_%20(1).png)
 
-📋 My Requested Foods
+### 💬 Chatbot
+![Chatbot](https://github.com/Debajit91/ahar-bondhu/blob/main/aharbondhu.web.app_%20(2).png)
+
+
 
 ## 📂 Project Structure
 
