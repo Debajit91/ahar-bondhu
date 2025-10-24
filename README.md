@@ -38,8 +38,6 @@ Ahar Bondhu is a **community-based food sharing platform** where users can donat
 
 ## 🖼️ Screenshots
 
-
-
 ### 🏠 Home Page
 ![Home Page](https://github.com/Debajit91/ahar-bondhu/blob/main/aharbondhu.web.app_.png)
 
@@ -48,7 +46,6 @@ Ahar Bondhu is a **community-based food sharing platform** where users can donat
 
 ### 💬 Chatbot
 ![Chatbot](https://github.com/Debajit91/ahar-bondhu/blob/main/aharbondhu.web.app_%20(2).png)
-
 
 
 ## 📂 Project Structure
