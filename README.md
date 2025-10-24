@@ -9,65 +9,68 @@ Ahar Bondhu is a **community-based food sharing platform** where users can donat
 🌐 [Visit Ahar Bondhu](https://aharbondhu.web.app)
 
 ---
+## ✨ Features
+
+- 🔐 **User Authentication** — Signup / Login via Firebase  
+- 🍛 **Add Surplus Food** — Share extra food easily  
+- 🙋‍♀️ **Request Food** — Request available food with optional notes  
+- 💬 **Groq AI Chatbot** — Get instant help & guidance  
+- 📦 **Food Management** — Manage donated and requested foods   
+- 📍 **Nearby Food Tracking** — See foods available near you  
+- 📱 **Responsive Design** — Works perfectly on any device  
+- 🌈 **Modern UI** — Built with TailwindCSS and Framer Motion animations  
+- 🔄 TanStack React Query for API Management
+- ✅ Yup + React Hook Form Validation
+
+---
+
+## 🛠️ Tech Stack
+
+| Area | Technologies |
+|------|---------------|
+| **Frontend** | React.js, TailwindCSS, React Hook Form, React Toastify |
+| **Backend** | Node.js, Express.js, MongoDB |
+| **Authentication** | Firebase Authentication |
+| **AI Integration** | Groq AI Chatbot |
+| **Deployment** | Vercel (Frontend), Render (Backend) |
+
+---
+
+🖼️ Screenshots
+
+Upload screenshots in a folder named screenshots/ in your repo and replace the links below 👇
+
+🏠 Home Page
+
+🍲 Food Details
+
+💬 Chatbot
+
+📋 My Requested Foods
 
 ## 📂 Project Structure
 
-```bash
-client/          # React frontend
-├── components/  # Reusable UI components
-├── pages/       # Page-level components
-├── hooks/       # Custom React hooks
-├── utils/       # Helper functions
-├── assets/      # Images/icons
-└── App.jsx      # Main app component
-
-server/          # Express backend
-├── routes/      # API routes
-├── DB/          # MongoDB connection utility
-
-└── index.js     # Entry point
+Ahar-Bondhu/
+├── client/             # React frontend
+│   ├── src/
+│   │   ├── components/
+│   │   ├── pages/
+│   │   ├── hooks/
+│   │   └── Api/
+│   └── public/
+└── server/             # Node + Express backend
+    ├── routes/
+    ├── controllers/
+    └── index.js
 
 
-🔧 Features
-🔐 Firebase Authentication
-
-🧑‍🍳 Food Donation by Authenticated Users
-
-🍽️ Food Request with Modal (With Extra Fields)
-
-🛑 Prevent Duplicate Requests
-
-💌 My Requested Foods Dashboard
-
-🌟 Featured Foods Section
-
-🏆 Top Donators Section (Dynamic with MongoDB aggregation)
-
-🔍 Food Search Functionality (by name)
-
-🖼️ 2 & 3 Column Toggle Layout for Available Foods
-
-⚡ Framer Motion Animations
-
-🔄 TanStack React Query for API Management
-
-✅ Yup + React Hook Form Validation
 
 🔒 Role-Based Protected Routes (coming soon)
 
-🛠️ Tech Stack
-Layer	Technology
-Frontend	React, Tailwind CSS, React Router DOM
-Animations	Framer Motion
-Forms	React Hook Form, Yup
-HTTP Client	Axios (with axiosInstance)
-Backend	Express.js, Node.js, MongoDB (Native Driver)
-Auth	Firebase Authentication
-Data Fetch	TanStack React Query (v5)
 
 📦 NPM Packages Used
 Frontend
-npm install react react-dom react-router-dom
+npm install react react-dom react-router
 npm install axios
 npm install react-hook-form yup @hookform/resolvers
 npm install framer-motion
@@ -76,9 +79,11 @@ npm install react-toastify
 npm install date-fns
 npm install firebase
 npm install react-icons
+npm install react-leaflet
+npm install react slick
 
 Backend
-npm install express cors mongodb dotenv
+npm install express cors mongodb dotenv @xenova/transformers nodemailer
 
 📌 Key Pages & Components
 Page	Description
@@ -107,10 +112,12 @@ Copy
 Edit
 GET    /api/users/top-donators
 
-✍️ Author
-Debajit Roy
-GitHub Profile: https://github.com/Debajit91
+📧 Contact
 
-📄 License
-This project is open-source and free to use under the MIT License.
+👨‍💻 Developer: Debajit Roy
+📩 Email: debajitroy544@gmail.com
+
+🌍 Portfolio: https://debajitroy-portfolio.vercel.app
+
+🐙 GitHub: https://github.com/Debajit91
 
