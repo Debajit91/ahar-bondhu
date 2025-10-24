@@ -41,10 +41,10 @@ const Testimonials = () => {
   };
 
   return (
-    <section className="my-20">
+    <section className="mb-10">
       <div className="text-center mb-12">
         <h2 className="text-3xl font-bold mb-4">What Our Community Says</h2>
-        <p className="w-2xl mx-auto">
+        <p className="max-w-2xl mx-auto">
           Real stories from real people who are making a difference through food sharing
         </p>
       </div>

@@ -9,7 +9,7 @@ import NearbyFoods from './NearbyFoods';
 
 const Home = () => {
     return (
-        <div className='max-w-7xl mx-auto px-6'>
+        <div className='mx-auto px-6'>
             <Banner/>
             <FeaturedFoods/>
             <ImpactStatistics/>

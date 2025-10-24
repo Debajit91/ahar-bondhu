@@ -43,10 +43,10 @@ const AppWrapper = () => {
             exit={{ opacity: 0 }}
             transition={{ duration: 0.8 }}
           >
-            
+            <FloatingChat/>
             <RouterProvider router={router} />
 
-            <FloatingChat/>
+            
           </motion.div>
         )}
       </AnimatePresence>

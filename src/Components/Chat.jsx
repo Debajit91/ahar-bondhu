@@ -2,14 +2,13 @@ import React, { useEffect, useRef, useState } from "react";
 import { chatURL } from "../Api/axiosInstance";
 
 export default function Chat({ userId = "u_local" }) {
-  const [messages, setMessages] = useState([]); // [{role:'user'|'assistant', content:string}]
+  const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const abortRef = useRef(null);
   const scrollerRef = useRef(null);
 
-  // Auto-scroll
   useEffect(() => {
     if (scrollerRef.current) {
       scrollerRef.current.scrollTop = scrollerRef.current.scrollHeight;
@@ -40,13 +39,12 @@ export default function Chat({ userId = "u_local" }) {
         try {
           const data = await resp.json();
           if (data?.error) msg = data.error;
-        } catch (_) {}
+        } catch {}
         setMessages((m) => [...m, { role: "assistant", content: `⚠️ ${msg}` }]);
         setLoading(false);
         return;
       }
 
-      // Start a new assistant message and stream into it
       let assistant = "";
       setMessages((m) => [...m, { role: "assistant", content: "" }]);
 
@@ -85,39 +83,30 @@ export default function Chat({ userId = "u_local" }) {
   };
 
   return (
-    <div className="flex h-full flex-col bg-white">
-      {/* Error banner */}
+    <div className="flex h-full flex-col bg-base-100 text-base-content">
       {error && (
-        <div className="bg-red-50 text-red-700 text-sm px-3 py-2 border-b border-red-200">
-          {error}
+        <div className="alert alert-error text-sm shadow-sm">
+          <span>{error}</span>
         </div>
       )}
 
-      {/* Messages area */}
-      <div
-        ref={scrollerRef}
-        className="flex-1 overflow-y-auto px-3 py-3 space-y-3 bg-white"
-      >
+      <div ref={scrollerRef} className="flex-1 overflow-y-auto p-3 space-y-3">
         {messages.length === 0 && (
-          <div className="text-gray-500 text-sm">
-            👋 Hi! Ask anything about the app and I’ll help. Tip: press <kbd className="px-1 py-0.5 bg-gray-100 border rounded">Enter</kbd> to send, <kbd className="px-1 py-0.5 bg-gray-100 border rounded">Shift</kbd>+<kbd className="px-1 py-0.5 bg-gray-100 border rounded">Enter</kbd> for a new line.
+          <div className="text-sm opacity-70">
+            👋 Hi! Ask anything about the app.  
+            Tip: <kbd className="kbd kbd-xs">Enter</kbd> to send,  
+            <kbd className="kbd kbd-xs">Shift</kbd>+<kbd className="kbd kbd-xs">Enter</kbd> for a new line.
           </div>
         )}
 
         {messages.map((m, i) => {
           const isUser = m.role === "user";
           return (
-            <div key={i} className={`flex ${isUser ? "justify-end" : "justify-start"}`}>
-              <div
-                className={[
-                  "max-w-[85%] rounded-2xl px-3 py-2 text-sm leading-relaxed whitespace-pre-wrap",
-                  isUser
-                    ? "bg-blue-600 text-white rounded-br-md"
-                    : "bg-gray-100 text-gray-900 rounded-bl-md border border-gray-200",
-                ].join(" ")}
-              >
-                {!isUser && <div className="text-[11px] font-semibold mb-1 text-gray-600">Assistant</div>}
-                {isUser && <div className="text-[11px] font-semibold mb-1 text-blue-100">You</div>}
+            <div key={i} className={`chat ${isUser ? "chat-end" : "chat-start"}`}>
+              <div className={`chat-bubble ${isUser ? "chat-bubble-primary" : "chat-bubble-secondary"}`}>
+                <div className="text-xs font-semibold mb-1 opacity-70">
+                  {isUser ? "You" : "Assistant"}
+                </div>
                 <div>{m.content}</div>
               </div>
             </div>
@@ -125,24 +114,22 @@ export default function Chat({ userId = "u_local" }) {
         })}
 
         {loading && (
-          <div className="flex justify-start">
-            <div className="bg-gray-100 border border-gray-200 text-gray-900 rounded-2xl rounded-bl-md px-3 py-2 text-sm">
-              <div className="text-[11px] font-semibold mb-1 text-gray-600">Assistant</div>
+          <div className="chat chat-start">
+            <div className="chat-bubble chat-bubble-secondary">
               <div className="flex gap-1 items-center">
                 <span className="animate-pulse">●</span>
-                <span className="animate-pulse" style={{ animationDelay: "100ms" }}>●</span>
-                <span className="animate-pulse" style={{ animationDelay: "200ms" }}>●</span>
+                <span className="animate-pulse delay-100">●</span>
+                <span className="animate-pulse delay-200">●</span>
               </div>
             </div>
           </div>
         )}
       </div>
 
-      {/* Composer */}
-      <div className="border-t bg-white p-2">
+      <div className="border-t border-base-200 p-2 bg-base-200">
         <div className="flex items-end gap-2">
           <textarea
-            className="flex-1 resize-none rounded-lg border border-gray-300 p-2 text-sm text-gray-500 outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            className="textarea textarea-bordered textarea-sm w-full"
             rows={2}
             placeholder="Describe your issue…"
             value={input}
@@ -153,28 +140,17 @@ export default function Chat({ userId = "u_local" }) {
           <button
             onClick={send}
             disabled={loading || !input.trim()}
-            className={`h-10 px-4 rounded-lg text-sm font-medium text-white ${loading || !input.trim()
-              ? "bg-blue-300 cursor-not-allowed"
-              : "bg-blue-600 hover:bg-blue-700"
-              }`}
-            title="Send (Enter)"
+            className="btn btn-primary btn-sm"
           >
             Send
           </button>
           <button
             onClick={stop}
             disabled={!loading}
-            className={`h-10 px-3 rounded-lg text-sm font-medium border ${!loading
-              ? "text-gray-400 border-gray-200 cursor-not-allowed"
-              : "text-gray-700 border-gray-300 hover:bg-gray-50"
-              }`}
-            title="Stop streaming"
+            className="btn btn-ghost btn-sm"
           >
             Stop
           </button>
-        </div>
-        <div className="mt-1 text-[11px] text-gray-500">
-          Press <kbd className="px-1 py-0.5 bg-gray-100 border rounded">Enter</kbd> to send • <kbd className="px-1 py-0.5 bg-gray-100 border rounded">Shift</kbd>+<kbd className="px-1 py-0.5 bg-gray-100 border rounded">Enter</kbd> for a new line
         </div>
       </div>
     </div>
